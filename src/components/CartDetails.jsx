@@ -105,26 +105,24 @@ const CartDetails = () => {
                                             {
                                                 carts.map((data, index) => {
                                                     return (
-                                                        <>
-                                                            <tr>
-                                                                <td><button className='prdct-delete' onClick={() => handleDelete(data.id)}><i className='fa fa-trash-alt'></i></button></td>
-                                                                <td><div className='product-img'><img src={data.imgdata} alt="" /></div></td>
-                                                                <td><div className='product-name'><p>{data.dish}</p></div></td>
-                                                                <td>{data.price}</td>
-                                                                <td>
-                                                                    <div className="prdct-qty-container">
-                                                                        <button className='prdct-qty-btn' type='button' onClick={data.qnty <= 1 ? () => handleDelete(data.id) : () => handleDecrement(data)}>
-                                                                            <i className='fa fa-minus'></i>
-                                                                        </button>
-                                                                        <input type="text" className='qty-input-box' value={data.qnty} disabled />
-                                                                        <button className='prdct-qty-btn' type='button' onClick={() => handleIncrement(data)}>
-                                                                            <i className='fa fa-plus'></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </td>
-                                                                <td className='text-right'>{data.qnty * data.price}</td>
-                                                            </tr>
-                                                        </>
+                                                        <tr key={index}>
+                                                            <td><button className='prdct-delete' onClick={() => handleDelete(data.id)}><i className='fa fa-trash-alt'></i></button></td>
+                                                            <td><div className='product-img'><img src={data.imgdata} alt="" /></div></td>
+                                                            <td><div className='product-name'><p>{data.dish}</p></div></td>
+                                                            <td>Rs. {data.price}</td>
+                                                            <td>
+                                                                <div className="prdct-qty-container">
+                                                                    <button className='prdct-qty-btn' type='button' onClick={data.qnty <= 1 ? () => handleDelete(data.id) : () => handleDecrement(data)}>
+                                                                        <i className='fa fa-minus'></i>
+                                                                    </button>
+                                                                    <input type="text" className='qty-input-box' value={data.qnty} disabled />
+                                                                    <button className='prdct-qty-btn' type='button' onClick={() => handleIncrement(data)}>
+                                                                        <i className='fa fa-plus'></i>
+                                                                    </button>
+                                                                </div>
+                                                            </td>
+                                                            <td className='text-right'>Rs. {data.qnty * data.price}</td>
+                                                        </tr>
                                                     )
                                                 })
                                             }
@@ -134,7 +132,7 @@ const CartDetails = () => {
                                                 <th>&nbsp;</th>
                                                 <th colSpan={3}>&nbsp;</th>
                                                 <th>Items in Cart <span className='mx-2'>:</span><span className='text-danger'>{totalquantity}</span></th>
-                                                <th className='text-right'>Total Price <span className='mx-2'>:</span><span className='text-danger'>{totalprice}</span></th>
+                                                <th className='text-right'>Total Price <span className='mx-2'>:</span><span className='text-danger'>Rs. {totalprice}</span></th>
                                             </tr>
                                         </tfoot>
                                     </table>

@@ -19,32 +19,30 @@ const Home = () => {
 
     return (
         <section className='iteam_section mt-4 container'>
-            <h2 className='px-4 fw-semibold mb-4'>Restaurants in Pune Open now</h2>
-            <div className="row mt-2 d-flex justify-content-around align-items-center">
+            <h2 className='px-4 fw-semibold mb-4 text-center'>Restaurants in Pune Open now</h2>
+            <div className="row mt-2 d-flex justify-content-around align-items-center column-gap-3">
                 {
                     cartData.map((element, index) => {
                         return (
-                            <>
-                                <Card style={{ width: "22rem", border: "none" }} className='hove mb-4'>
-                                    <Card.Img variant='top' className='cd' src={element.imgdata} />
-                                    <div className="card_body">
-                                        <div className="upper_data d-flex justify-content-between align-items-center">
-                                            <h4 className='mt-2'>{element.dish}</h4>
-                                            <span>{element.rating} &nbsp;★</span>
-                                        </div>
-                                        <div className="lower_data d-flex justify-content-between ">
-                                            <h5>{element.address}</h5>
-                                            <span>{element.price}</span>
-                                        </div>
-                                        <div className="extra"></div>
-                                        <div className="last_data d-flex justify-content-between align-items-center">
-                                            <img src={element.arrimg} className='limg' alt="" />
-                                            <Button style={{ width: "150px", background: "#ff3054db", border: "none" }} variant='outline-light' className='my-2' onClick={() => send(element)}>Add to Cart</Button>
-                                            <img src={element.delimg} className='laimg' alt="" />
-                                        </div>
+                            <Card key={index} style={{ width: "22rem", border: "none" }} className='hove mb-4'>
+                                <Card.Img variant='top' className='cd' src={element.imgdata} />
+                                <div className="card_body">
+                                    <div className="upper_data d-flex justify-content-between align-items-center">
+                                        <h4 className='mt-2'>{element.dish}</h4>
+                                        <span>{element.rating} &nbsp;★</span>
                                     </div>
-                                </Card>
-                            </>
+                                    <div className="lower_data d-flex justify-content-between ">
+                                        <h5>{element.address}</h5>
+                                        <span>Rs.{element.price}</span>
+                                    </div>
+                                    <div className="extra"></div>
+                                    <div className="last_data d-flex justify-content-between align-items-center">
+                                        <img src={element.arrimg} className='limg' alt="" />
+                                        <Button style={{ width: "150px", background: "#ff3054db", border: "none" }} variant='outline-light' className='my-2' onClick={() => send(element)}>Add to Cart</Button>
+                                        <img src={element.delimg} className='laimg' alt="" />
+                                    </div>
+                                </div>
+                            </Card>
                         )
                     })
                 }
